@@ -36,3 +36,31 @@
     transform: rotate(360deg);
   }
 }
+.ant-card-head {
+  min-height: 100px;
+}
+
+.cardTitle{
+ text-align: center;
+ }
+ .cardTitle p{
+  font-size: 12px;
+  font-weight: 400;
+  white-space: break-spaces;
+  text-align: justify;
+}
+
+.cardTitle .anticon{
+  font-size: 30pt;
+    display: flex;
+    justify-content:center;
+}
+.scoreBar{
+  padding: 16px;
+  font-size: 20pt;
+}
+.scoreBar .ant-progress{
+  margin: 0 auto 0 -13px;
+  display: block;
+  text-align: center;
+}
