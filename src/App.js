@@ -1,105 +1,115 @@
+import React from 'react';
+import { makeStyles } from '@material-ui/core/styles';
+import CssBaseline from '@material-ui/core/CssBaseline'; 
 
-import 'antd/dist/antd.css'; 
-import './App.css';
+import Container from '@material-ui/core/Container';
+import Grid from '@material-ui/core/Grid'; 
 
-import { Layout, Row, Col, Card, List, Progress } from 'antd';
-import {  DropboxOutlined, GoogleOutlined, CloseOutlined, CloseCircleTwoTone } from '@ant-design/icons';
+import Avatar from '@material-ui/core/Avatar';
+import ImageIcon from '@material-ui/icons/Image';
+ 
 
-const { Content } = Layout;
-const data = [
-  'Product Description',
-  'Funding History',
-  'Pricing',
-  'Features',
-  'Customer case studies',
-]; 
-const dropbox = [
-  'Dropbox is a cloud based file management',
-  'Total funding $170m',
-  'www.dropbox.com/pricing',
-  '5 different features present',
-  '4 customer case studies found',
-]; 
-const drive = [
-  'Store, sync and share files easily',
-  'Total funding $36.1m',
-  'www.drive.google.com/pricing',
-  '4 different features present',
-  '6 customer case studies found',
-]; 
+import Accordion from '@material-ui/core/Accordion';
+import AccordionDetails from '@material-ui/core/AccordionDetails';
+import AccordionSummary from '@material-ui/core/AccordionSummary';
+import Typography from '@material-ui/core/Typography';
+import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+
+import Vendor from './Vendor';
+
+
+const useStyles = makeStyles((theme) => ({
+  root: {
+    // display: 'flex',
+    padding: theme.spacing(4),
+    backgroundColor: '#eee',
+
+  },
+  heading: {
+    fontSize: theme.typography.pxToRem(15),
+    flexBasis: '33.33%',
+    flexShrink: 0,
+  },
+  secondaryHeading: {
+    fontSize: theme.typography.pxToRem(15),
+    color: theme.palette.text.secondary,
+  },
+  nested: {
+    paddingLeft: theme.spacing(4),
+  },
+  vendorsList: {
+    backgroundColor: '#F7F7F7',
+  },
+  applicationArea: {
+    backgroundColor: '#f1f1f1',
+  },
+}));
+ 
+
 function App() {
-  return (
-    <Layout>
-      <Content>
-        <Row justify="center">
+  const classes = useStyles();
+  
 
-          <Col span={6}>
-            <Card hoverable title={<div className="cardTitle"><p>Note: To add more vendors to compare you need to first remove one or more vendors. At a time maximum four vendors are allowed to compare.</p></div>} bodyStyle={{padding: "0"}} >
-              <div className="scoreBar">
-                Overall Score
-              </div>
-              <List 
-                bordered
-                dataSource={data}
-                renderItem={item => (
-                  <List.Item actions={[<a href="/del" key="list-loadmore-more"><CloseCircleTwoTone twoToneColor="rgb(255, 45, 90)" /></a>]}>
-                   {item}
-                  </List.Item>
-                )}
-              />
-            </Card>
-          </Col>
-          <Col span={6}>
-            <Card hoverable title={<div className="cardTitle"><DropboxOutlined /> Dropbox </div>} bodyStyle={{padding: "0"}} extra={<CloseOutlined />} >
-              <div className="scoreBar">
-                <Progress type="circle" percent={75} format={percent => `6`} width={40} />
-              </div>
-              <List 
-                bordered
-                dataSource={dropbox}
-                renderItem={item => (
-                  <List.Item>
-                   {item}
-                  </List.Item>
-                )}
-              />
-            </Card>
-          </Col>
-          <Col span={6}>
-          <Card hoverable title={<div className="cardTitle"><GoogleOutlined /> Google Drive </div>} bodyStyle={{padding: "0"}} extra={<CloseOutlined />} >
-              <div className="scoreBar">
-                <Progress type="circle" percent={45} format={percent => `4.5`} width={40} />
-              </div>
-              <List 
-                bordered
-                dataSource={drive}
-                renderItem={item => (
-                  <List.Item>
-                   {item}
-                  </List.Item>
-                )}
-              />
-            </Card>
-          </Col> 
-          <Col span={6}>
-          <Card hoverable title={<div className="cardTitle"><GoogleOutlined /> Sales Force </div>} bodyStyle={{padding: "0"}} extra={<CloseOutlined />} >
-              <div className="scoreBar">
-                <Progress type="circle" percent={60} format={percent => `6.2`} width={40} />
-              </div>
-              <List 
-                bordered
-                dataSource={drive}
-                renderItem={item => (
-                  <List.Item>
-                   {item}
-                  </List.Item>
-                )}
-              />
-            </Card>
-          </Col> 
-        </Row>
-      </Content>
-    </Layout>
+  const [expanded, setExpanded] = React.useState(false);
+
+  const handleChange = (panel) => (event, isExpanded) => {
+    setExpanded(isExpanded ? panel : false);
+  };
+  return ( 
+    <Container maxWidth="xl" className={classes.root}>
+      <CssBaseline />
+        <Grid container direction="row" justify="flex-start" alignItems="flex-start" spacing={0}>
+          <Grid xs={12}>
+            <Typography component='h5' variant='h5'>List of Vandors</Typography>
+
+            <Accordion expanded={expanded === 'panel1'} onChange={handleChange('panel1')}>
+              <AccordionSummary
+                expandIcon={<ExpandMoreIcon />}
+                aria-controls="panel1bh-content"
+                id="panel1bh-header"
+              >
+                <Grid container direction="row" justify="flex-start" alignItems="flex-start" spacing={2}>
+                  <Grid item>       
+                    <Avatar variant="square">
+                      <ImageIcon />
+                    </Avatar>
+                  </Grid>
+                  <Grid item> 
+                    <Typography className={classes.heading}>Apple Store</Typography>
+                    <Typography className={classes.secondaryHeading}>4 Apps | Inactive</Typography>
+                  </Grid>
+                </Grid>
+
+              </AccordionSummary>
+              <AccordionDetails>
+                <Vendor />
+              </AccordionDetails>
+            </Accordion>
+            <Accordion expanded={expanded === 'panel2'} onChange={handleChange('panel2')}>
+              <AccordionSummary
+                expandIcon={<ExpandMoreIcon />}
+                aria-controls="panel2bh-content"
+                id="panel2bh-header"
+              >
+                <Grid container direction="row" justify="flex-start" alignItems="flex-start" spacing={2}>
+                  <Grid item>       
+                    <Avatar variant="square">
+                      <ImageIcon />
+                    </Avatar>
+                  </Grid>
+                  <Grid item> 
+                    <Typography className={classes.heading}>Cloudeagle</Typography>
+                    <Typography className={classes.secondaryHeading}>1 Apps | Active</Typography>
+                  </Grid>
+                </Grid>
+              </AccordionSummary>
+              <AccordionDetails>
+                <Vendor />
+              </AccordionDetails>
+            </Accordion>             
+          </Grid>
+      </Grid>
+    </Container>
   );
 }
 

@@ -36,6 +36,15 @@
     transform: rotate(360deg);
   }
 }
+
+.leftBar{
+  background-color: #282c34;
+  color: #fff;
+}
+.ant-typography{
+  color: #fff !important;
+
+}
 .ant-card-head {
   min-height: 100px;
 }
