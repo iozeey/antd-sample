@@ -40,19 +40,25 @@
 .leftBar{
   background-color: #282c34;
   color: #fff;
-}
-.ant-typography{
-  color: #fff !important;
-
+} 
+.ant-typography.ant-typography-secondary{
+  color: #ccc;
 }
 .ant-card-head {
-  min-height: 100px;
+  background: steelblue;
+  color: #fff;
 }
-
+.ant-card-meta-detail {
+  margin-bottom: 0px;
+  background-color: lavender;
+  padding: 10px;
+}
 .cardTitle{
- text-align: center;
- }
- .cardTitle p{
+ align-items: center;
+ display: flex;
+ /* justify-content:center; */
+}
+.cardTitle p{
   font-size: 12px;
   font-weight: 400;
   white-space: break-spaces;
@@ -61,9 +67,15 @@
 
 .cardTitle .anticon{
   font-size: 30pt;
-    display: flex;
-    justify-content:center;
+  margin-right:10px;
 }
+.ant-tabs-content-holder{
+  padding: 4px 20px 20px;
+}
+
+
+
+
 .scoreBar{
   padding: 16px;
   font-size: 20pt;
