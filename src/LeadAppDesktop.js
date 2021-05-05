@@ -5,15 +5,12 @@ import Box from '@material-ui/core/Box';
 import Button from '@material-ui/core/Button';
 
 import ContactCard from './LeadAppContactCard'
-          
 import History from './LeadAppHistory'
-
 import CompanyCard from './LeadAppCompanyCard'
-
 import Insights from './LeadAppInsights'
 import Actions from './LeadAppActions'
 import Statistics from './LeadAppStatics'
-
+import AppMenu from './LeadAppMenu'
 const useStyles = makeStyles((theme) => ({
     root: {
       // display: 'flex',
@@ -48,9 +45,7 @@ function LeadAppDesktop() {
             <Box mx="auto" p={2} className={classes.applicationArea}>
               <Grid className={classes.navBar} container direction="row" justify="center" alignItems="flex-start" spacing={4}>
                 <Grid item xs={9}>
-                    <Button variant="contained" color="primary" >Home</Button>
-                
-                    <Button variant="contained" color="primary" >Add Contact</Button>
+                    <AppMenu /> 
                 </Grid>
                 <Grid item xs={3} align="right">
                   <svg width="151" height="30" viewBox="0 0 151 30" fill="none" xmlns="http://www.w3.org/2000/svg">
