@@ -32,7 +32,7 @@ const useStyles = makeStyles((theme) => ({
         },
     },
     rootInsight: {
-        backgroundColor: '#eee'
+        backgroundColor: 'rgb(231, 237, 246)'
     },
     iconLarge: {
         background: '#fff',
