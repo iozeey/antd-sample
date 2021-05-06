@@ -12,10 +12,8 @@ import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 
+import { ForwardIconSvg, EyeIconSvg, AddIconSvg } from './LeadAppIcons'
 
-import VisibilityIcon from '@material-ui/icons/Visibility';
-import SendIcon from '@material-ui/icons/Send';
-import AddBoxIcon from '@material-ui/icons/AddBox';
 const useStyles = makeStyles((theme) => ({
     HistoryCard:{ 
     },  
@@ -26,8 +24,26 @@ const useStyles = makeStyles((theme) => ({
       backgroundColor: '#fff',
       '& li': {
         color: '#a58c8c',
+        padding: theme.spacing(1, 0)
+      },
+      '& li:nth-child(2) > div.green': {
+            background: '#20B0A7',
       },
     }, 
+    iconLarge: {
+        background: '#339CFE',
+        minWidth: theme.spacing(4),
+        height: theme.spacing(4),
+        margin: theme.spacing(0, 2, 0, 0),
+        borderRadius: '4px',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+       
+    },
+    iconLargeGreen: {
+        backgroundColor: '#20B0A7',
+    },
   }));
 
 function History() {
@@ -44,8 +60,8 @@ function History() {
                         <Grid item xs={12}>
                             <List  className={classes.contactDetail} aria-label="contacts">
                                 <ListItem>
-                                    <ListItemIcon>
-                                        <AddBoxIcon fontSize="large" />
+                                    <ListItemIcon className={classes.iconLarge}>
+                                        <AddIconSvg />
                                     </ListItemIcon>
                                     <ListItemText
                                         primary="Lead recieved by Interlynx Systems"
@@ -53,8 +69,8 @@ function History() {
                                     />
                                 </ListItem>
                                 <ListItem>
-                                    <ListItemIcon>
-                                        <SendIcon fontSize="large"  />
+                                    <ListItemIcon className={`${classes.iconLarge} ${classes.iconLargeGreen}`}>
+                                        <ForwardIconSvg  />
                                     </ListItemIcon>
                                     <ListItemText 
                                         primary="Lead sent by Interlynx Systems to RSM"
@@ -62,8 +78,8 @@ function History() {
                                      />
                                 </ListItem>
                                 <ListItem>
-                                    <ListItemIcon>
-                                        <VisibilityIcon fontSize="large"  />
+                                    <ListItemIcon className={classes.iconLarge}>
+                                        <EyeIconSvg  />
                                     </ListItemIcon>
                                     <ListItemText 
                                         primary="Lead viewed by Shelly Wilson"

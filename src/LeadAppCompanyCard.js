@@ -13,9 +13,8 @@ import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 
-import AssignmentIcon from '@material-ui/icons/Assignment';
-import LocationOnIcon from '@material-ui/icons/LocationOn';
-import BusinessIcon from '@material-ui/icons/Business';
+import { BusinessAndTradeIconSvg, MotherAndBabyIconSvg, AddressIconSvg, LocationIconSvg } from './LeadAppIcons'
+
 
 const useStyles = makeStyles((theme) => ({
     HistoryCard:{ 
@@ -47,35 +46,35 @@ function CompanyCard() {
                             <List  className={classes.companyDetail} aria-label="contacts">
                                 <ListItem>
                                     <ListItemIcon>
-                                        <BusinessIcon />
+                                        <BusinessAndTradeIconSvg />
                                     </ListItemIcon>
                                     <ListItemText primary="Country Pure Foods Inc" />
                                 </ListItem>
                                 <Divider />
                                 <ListItem>
                                     <ListItemIcon>
-                                        <AssignmentIcon />
+                                        <MotherAndBabyIconSvg />
                                     </ListItemIcon>
                                     <ListItemText primary="The J.M. Smucker Company" />
                                 </ListItem>
                                 <Divider />
                                 <ListItem>
                                     <ListItemIcon>
-                                        <AssignmentIcon />
+                                        <AddressIconSvg />
                                     </ListItemIcon>
                                     <ListItemText primary="2033 - Canned Fruits, Vegetables, Pres..." />
                                 </ListItem>
                                 <Divider />
                                 <ListItem>
                                     <ListItemIcon>
-                                        <AssignmentIcon />
+                                        <AddressIconSvg />
                                     </ListItemIcon>
                                     <ListItemText primary="311421 - Fruits and Vegetables Canning" />
                                 </ListItem>
                                 <Divider />
                                 <ListItem>
                                     <ListItemIcon>
-                                        <LocationOnIcon />
+                                        <LocationIconSvg />
                                     </ListItemIcon>
                                     <ListItemText primary="681 West Waterloo Road, Akron, OH, USA, 44314" />
                                 </ListItem>

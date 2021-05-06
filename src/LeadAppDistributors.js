@@ -17,10 +17,11 @@ import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 
 import LocationOnIcon from '@material-ui/icons/LocationOn'; 
-import AssignmentIndIcon from '@material-ui/icons/AssignmentInd';
 import TextField from '@material-ui/core/TextField';
 import AddIcon from '@material-ui/icons/Add';
 import RemoveIcon from '@material-ui/icons/Remove';
+
+import { ProfileIconWhiteSvg } from './LeadAppIcons'
 
 function AccordionDetailInner() {
     return (
@@ -29,7 +30,7 @@ function AccordionDetailInner() {
             <List aria-label="contacts">
                 <ListItem className="active">
                     <ListItemIcon>
-                        <AssignmentIndIcon fontSize="large" />
+                        <ProfileIconWhiteSvg />
                     </ListItemIcon>
                     <ListItemText
                         primary="Kaman Branch TX 93"
@@ -42,7 +43,7 @@ function AccordionDetailInner() {
             <List aria-label="contacts">
                 <ListItem>
                     <ListItemIcon>
-                        <AssignmentIndIcon fontSize="large" />
+                        <ProfileIconWhiteSvg />
                     </ListItemIcon>
                     <ListItemText
                         primary="Kaman Branch TX 93"
@@ -68,6 +69,23 @@ function AccordionDetailInner() {
     );
 }
  
+function AccordionHeader(props) {
+    return (
+        <Grid className={props.className} container direction="row" justify="start" alignItems="flex-start" spacing={1}>
+            <Grid item>
+                <Typography display="block" variant="subtitle2" nowrap={true}>{props.title} 
+                    <Button variant="contained" color={props.tierLevelBtnColor} size="small">{props.tierLevel}</Button>
+                </Typography>
+            </Grid >
+            <Grid item>
+                <Button style={{ color: '#727274'}}><LocationOnIcon style={{fill: "#20B0A7"}}/> {props.location}</Button>
+            </Grid>
+            <Grid item>                                                    
+                <Button style={{ color: '#727274'}}>{props.distance}</Button>
+            </Grid>
+        </Grid >
+    );
+}
 const useStyles = makeStyles((theme) => ({
     actionHeader: {
         '& h6 > button': {
@@ -125,17 +143,14 @@ function Distributors() {
                 aria-controls="panel1ah-content"
                 id="panel1ah-header"
                 >
-                    <Grid className={classes.actionHeader} container direction="row" justify="center" alignItems="flex-start" spacing={1}>
-                        <Grid item xs={6}>
-                            <Typography display="block" variant="subtitle2" nowrap={true}>Kaman Industries Inc. <Button variant="contained" color="primary" size="small">Tier 1</Button></Typography>
-                        </Grid >
-                        <Grid item xs={3}>
-                            <Button style={{ color: '#A9A9A9'}}><LocationOnIcon style={{fill: "#3CB371"}}/> Arlington, TX</Button>
-                        </Grid>
-                        <Grid item xs={3}>                                                    
-                            <Button style={{ color: '#A9A9A9'}}>4.25 Miles</Button>
-                        </Grid>
-                    </Grid >
+                    <AccordionHeader 
+                        className={classes.actionHeader} 
+                        title="Kaman Industries Inc."
+                        tierLevel="Tier 1"
+                        tierLevelBtnColor="primary"
+                        location="Arlington, TX"
+                        distance="4.25 Miles"
+                    />
                 </AccordionSummary>
                 <AccordionDetails className={classes.contactDetail} >
                     <AccordionDetailInner />
@@ -148,17 +163,14 @@ function Distributors() {
                 aria-controls="panel2ah-content"
                 id="panel2ah-header"
                 >
-                    <Grid className={classes.actionHeader} container direction="row" justify="center" alignItems="flex-start" spacing={1}>
-                        <Grid item xs={6}>
-                            <Typography display="block" variant="subtitle2" nowrap={true}>Purvis Industries <Button variant="contained" color="primary" size="small">Tier 1</Button></Typography>
-                        </Grid >
-                        <Grid item xs={3}>
-                            <Button style={{ color: '#A9A9A9'}}><LocationOnIcon style={{fill: "#3CB371"}}/> Arlington, TX</Button>
-                        </Grid>
-                        <Grid item xs={3}>                                                    
-                            <Button style={{ color: '#A9A9A9'}}>4.25 Miles</Button>
-                        </Grid>
-                    </Grid >
+                    <AccordionHeader 
+                        className={classes.actionHeader} 
+                        title="Purvis Industries"
+                        tierLevel="Tier 1"
+                        tierLevelBtnColor="primary"
+                        location="Dallas, TX"
+                        distance="7.62 Miles"
+                    />
                 </AccordionSummary>
                 <AccordionDetails className={classes.contactDetail} >
                     <AccordionDetailInner />
@@ -171,17 +183,14 @@ function Distributors() {
                 aria-controls="panel3ah-content"
                 id="panel3ah-header"
                 >
-                    <Grid className={classes.actionHeader} container direction="row" justify="center" alignItems="flex-start" spacing={1}>
-                        <Grid item xs={6}>
-                            <Typography display="block" variant="subtitle2" nowrap={true}>B & D Industrial <Button variant="contained" color="secondary" size="small">Tier 2</Button></Typography>
-                        </Grid >
-                        <Grid item xs={3}>
-                            <Button style={{ color: '#A9A9A9'}}><LocationOnIcon style={{fill: "#3CB371"}}/> Arlington, TX</Button>
-                        </Grid>
-                        <Grid item xs={3}>                                                    
-                            <Button style={{ color: '#A9A9A9'}}>4.25 Miles</Button>
-                        </Grid>
-                    </Grid >
+                    <AccordionHeader 
+                        className={classes.actionHeader} 
+                        title="B & D Industrial"
+                        tierLevel="Tier 2"
+                        tierLevelBtnColor="secondary"
+                        location="Dallas, TX"
+                        distance="14.25 Miles"
+                    />
                 </AccordionSummary>
                 <AccordionDetails className={classes.contactDetail} >
                     <AccordionDetailInner />
@@ -194,17 +203,14 @@ function Distributors() {
                 aria-controls="panel4ah-content"
                 id="panel4ah-header"
                 >
-                    <Grid className={classes.actionHeader} container direction="row" justify="center" alignItems="flex-start" spacing={1}>
-                        <Grid item xs={6}>
-                            <Typography display="block" variant="subtitle2" nowrap={true}>Womack Machine <Button variant="contained" color="secondary" size="small">Tier 2</Button></Typography>
-                        </Grid >
-                        <Grid item xs={3}>
-                            <Button style={{ color: '#A9A9A9'}}><LocationOnIcon style={{fill: "#3CB371"}}/> Arlington, TX</Button>
-                        </Grid>
-                        <Grid item xs={3}>                                                    
-                            <Button style={{ color: '#A9A9A9'}}>4.25 Miles</Button>
-                        </Grid>
-                    </Grid >
+                   <AccordionHeader 
+                        className={classes.actionHeader} 
+                        title="Womack Machine"
+                        tierLevel="Tier 2"
+                        tierLevelBtnColor="secondary"
+                        location="Dallas, TX"
+                        distance="4.25 Miles"
+                    />
                 </AccordionSummary>
                 <AccordionDetails className={classes.contactDetail} >
                     <AccordionDetailInner />
@@ -217,17 +223,14 @@ function Distributors() {
                 aria-controls="panel5ah-content"
                 id="panel5ah-header"
                 >
-                    <Grid className={classes.actionHeader} container direction="row" justify="center" alignItems="flex-start" spacing={1}>
-                        <Grid item xs={6}>
-                            <Typography display="block" variant="subtitle2" nowrap={true}>Hydraquip <Button variant="contained" color="primary" size="small">Tier 1</Button></Typography>
-                        </Grid >
-                        <Grid item xs={3}>
-                            <Button style={{ color: '#A9A9A9'}}><LocationOnIcon style={{fill: "#3CB371"}}/> Arlington, TX</Button>
-                        </Grid>
-                        <Grid item xs={3}>                                                    
-                            <Button style={{ color: '#A9A9A9'}}>4.25 Miles</Button>
-                        </Grid>
-                    </Grid >
+                   <AccordionHeader 
+                        className={classes.actionHeader} 
+                        title="Hydraquip"
+                        tierLevel="Tier 1"
+                        tierLevelBtnColor="primary"
+                        location="Arlington, TX"
+                        distance="4.25 Miles"
+                    />
                 </AccordionSummary>
                 <AccordionDetails className={classes.contactDetail} >
                     <AccordionDetailInner />
@@ -240,17 +243,14 @@ function Distributors() {
                 aria-controls="panel6ah-content"
                 id="panel6ah-header"
                 >
-                    <Grid className={classes.actionHeader} container direction="row" justify="center" alignItems="flex-start" spacing={1}>
-                        <Grid item xs={6}>
-                            <Typography display="block" variant="subtitle2" nowrap={true}>Texas Instruments <Button variant="contained" color="secondary" size="small">Tier 2</Button></Typography>
-                        </Grid >
-                        <Grid item xs={3}>
-                            <Button style={{ color: '#A9A9A9'}}><LocationOnIcon style={{fill: "#3CB371"}}/> Arlington, TX</Button>
-                        </Grid>
-                        <Grid item xs={3}>                                                    
-                            <Button style={{ color: '#A9A9A9'}}>4.25 Miles</Button>
-                        </Grid>
-                    </Grid >
+                    <AccordionHeader 
+                        className={classes.actionHeader} 
+                        title="Texas Instruments"
+                        tierLevel="Tier 2"
+                        tierLevelBtnColor="secondary"
+                        location="Arlington, TX"
+                        distance="4.25 Miles"
+                    />
                 </AccordionSummary>
                 <AccordionDetails className={classes.contactDetail} >
                     <AccordionDetailInner />

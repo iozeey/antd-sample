@@ -11,17 +11,11 @@ import AppBar from '@material-ui/core/AppBar';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import Box from '@material-ui/core/Box';
-
-import SendIcon from '@material-ui/icons/Send';
-import AddCircleIcon from '@material-ui/icons/AddCircle';
-import EditIcon from '@material-ui/icons/Edit';
-import ForwardIcon from '@material-ui/icons/Forward';
-import NotificationsActiveIcon from '@material-ui/icons/NotificationsActive';
-import AutorenewIcon from '@material-ui/icons/Autorenew';
-import WarningIcon from '@material-ui/icons/Warning';
-import ChatBubbleIcon from '@material-ui/icons/ChatBubble';
-import HeadsetMicIcon from '@material-ui/icons/HeadsetMic'; 
+  
  
+import { ForwardIconSvg, NotificationsActiveIconSvg, AutorenewIconSvg, WarningIconSvg, ChatBubbleIconSvg, HeadsetMicIconSvg,
+  HouseIconSvg, UserIconSvg, WheelIconSvg, DiskIconSvg } from './LeadAppIcons'
+
 
 function TabPanel(props) {
     const { children, value, index, ...other } = props;  
@@ -76,6 +70,12 @@ const useStyles = makeStyles((theme) => ({
         '& > div': {
             padding: theme.spacing(2) ,      
         },
+        '& button': {
+          display: 'flex',
+          justifyContent: 'start',
+          padding: theme.spacing(1, 2) , 
+        },
+      
     },
   }));
  
@@ -98,27 +98,27 @@ function ActionsTabs() {
                 scrollButtons="off"
                 aria-label="scrollable prevent tabs example"
                 >
-                <Tab icon={<ForwardIcon />} label="Forward" aria-label="phone" {...a11yProps(0)} />
-                <Tab icon={<NotificationsActiveIcon />} label="Open" aria-label="favorite" {...a11yProps(1)} />
-                <Tab icon={<AutorenewIcon />} label="Close" aria-label="person" {...a11yProps(2)} />
-                <Tab icon={<WarningIcon />} label="Not My Lead" aria-label="help" {...a11yProps(3)} />
-                <Tab icon={<ChatBubbleIcon />} label="Chat" aria-label="shopping" {...a11yProps(4)} />
-                <Tab icon={<HeadsetMicIcon />} label="Support" aria-label="up" {...a11yProps(5)} />
+                <Tab icon={<ForwardIconSvg />} label="Forward" aria-label="phone" {...a11yProps(0)} />
+                <Tab icon={<NotificationsActiveIconSvg />} label="Open" aria-label="favorite" {...a11yProps(1)} />
+                <Tab icon={<AutorenewIconSvg />} label="Close" aria-label="person" {...a11yProps(2)} />
+                <Tab icon={<WarningIconSvg />} label="Not My Lead" aria-label="help" {...a11yProps(3)} />
+                <Tab icon={<ChatBubbleIconSvg />} label="Chat" aria-label="shopping" {...a11yProps(4)} />
+                <Tab icon={<HeadsetMicIconSvg />} label="Support" aria-label="up" {...a11yProps(5)} />
                 </Tabs>
             </AppBar>
             <TabPanel className={classes.leadActionPanel} value={value} index={0}>
                 <Grid container direction="row" justify="center" alignItems="flex-start" spacing={1}>
                     <Grid item xs={3}>
-                        <Button fullWidth variant="contained" color="primary" size="small"  startIcon={<SendIcon fontSize="small" />}>All Distributors</Button>
+                        <Button fullWidth variant="contained" color="primary" size="small"  startIcon={<HouseIconSvg />}>All Distributors</Button>
                     </Grid >
                     <Grid item xs={3}>
-                        <Button fullWidth variant="contained" color="primary" size="small" startIcon={<SendIcon fontSize="small" />}>Other TM</Button>
+                        <Button fullWidth variant="contained" color="primary" size="small" startIcon={<UserIconSvg />}>Other TM</Button>
                     </Grid >
                     <Grid item xs={3}>
-                        <Button fullWidth variant="contained" color="primary" size="small" startIcon={<AddCircleIcon fontSize="small" />}>TM IBU</Button>
+                        <Button fullWidth variant="contained" color="primary" size="small" startIcon={<WheelIconSvg />}>TM IBU</Button>
                     </Grid>
                     <Grid item xs={3}>
-                        <Button fullWidth variant="contained" color="primary" size="small" startIcon={<EditIcon fontSize="small" />}>Linear Specialist</Button>
+                        <Button fullWidth variant="contained" color="primary" size="small" startIcon={<DiskIconSvg />}>Linear Specialist</Button>
                     </Grid>
                 </Grid >
             </TabPanel>

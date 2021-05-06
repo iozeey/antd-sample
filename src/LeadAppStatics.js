@@ -1,5 +1,4 @@
 import React from 'react';
-import Grid from '@material-ui/core/Grid'; 
 
 import { makeStyles } from '@material-ui/core/styles';
  
@@ -10,7 +9,8 @@ import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
-
+import MinimizeIcon from '@material-ui/icons/Minimize';
+import {FireIconSvg} from './LeadAppIcons';
 const useStyles = makeStyles((theme) => ({
     
     ActionCardHeader: {
@@ -54,8 +54,8 @@ function Statistics() {
           <TableBody>
             {rows.map((row) => (
               <TableRow key={row.name}>
-                <TableCell component="th" scope="row">{row.leadDate}</TableCell>
-                <TableCell>{row.leadScore}</TableCell>
+                <TableCell><MinimizeIcon /> {row.leadDate}</TableCell>
+                <TableCell><FireIconSvg /> {row.leadScore}</TableCell>
                 <TableCell>{row.companyName}</TableCell>
                 <TableCell>{row.cityState}</TableCell>
                 <TableCell>{row.country}</TableCell>

@@ -7,14 +7,11 @@ import Button from '@material-ui/core/Button';
 import Card from '@material-ui/core/Card';
 import CardHeader from '@material-ui/core/CardHeader';
 import CardContent from '@material-ui/core/CardContent';
- 
-import SendIcon from '@material-ui/icons/Send';
-import AddCircleIcon from '@material-ui/icons/AddCircle';
-import EditIcon from '@material-ui/icons/Edit'; 
 
 import ActionsTabs from './LeadAppActionsTabs';
 import Distributors from './LeadAppDistributors';
- 
+import { PaperPlaneIconSvg, AddCircleIconSvg, EditIconSvg } from './LeadAppIcons';
+
 const useStyles = makeStyles((theme) => ({
     
     ActionCardHeader: {
@@ -44,20 +41,19 @@ function Actions() {
                         <Grid item xs={12}>
                             <Card className={classes.root}>
                                 <CardContent>
-                                    <div className={classes.vSpacing}></div> 
                                     <ActionsTabs />
                                     <div className={classes.vSpacing}></div>
                                     <Distributors />
                                     <div className={classes.vSpacing}></div>
                                     <Grid container direction="row" justify="center" alignItems="flex-start" spacing={1}>
                                         <Grid item xs={6}>
-                                            <Button fullWidth variant="contained" color="primary" startIcon={<SendIcon fontSize="small" />}>Submit Lead</Button>
+                                            <Button fullWidth variant="contained" color="primary" startIcon={<PaperPlaneIconSvg />}>Submit Lead</Button>
                                         </Grid >
                                         <Grid item xs={3}>
-                                            <Button fullWidth variant="contained" color="primary" startIcon={<AddCircleIcon fontSize="small" />}>Add Contact</Button>
+                                            <Button fullWidth variant="contained" color="primary" startIcon={<AddCircleIconSvg />}>Add Contact</Button>
                                         </Grid>
                                         <Grid item xs={3}>
-                                            <Button fullWidth variant="contained" color="primary" startIcon={<EditIcon fontSize="small" />}>Edit Contact</Button>
+                                            <Button fullWidth variant="contained" color="primary" startIcon={<EditIconSvg />}>Edit Contact</Button>
                                         </Grid>
                                     </Grid >
                    

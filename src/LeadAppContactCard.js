@@ -20,14 +20,12 @@ import Avatar from '@material-ui/core/Avatar';
 import Chip from '@material-ui/core/Chip';
 import Divider from '@material-ui/core/Divider';
 import IconButton from '@material-ui/core/IconButton';
-
-import ContactsIcon from '@material-ui/icons/Contacts';
-import CardTravelIcon from '@material-ui/icons/CardTravel';
-import CallIcon from '@material-ui/icons/Call';
-import MailIcon from '@material-ui/icons/Mail';
+ 
 import FiberManualRecordIcon from '@material-ui/icons/FiberManualRecord';
 import LockIcon from '@material-ui/icons/Lock';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
+
+import { ProfileIconSvg, CallIconSvg, BagIconSvg, MailIconSvg } from './LeadAppIcons'
 
 const useStyles = makeStyles((theme) => ({
     buttons: {
@@ -55,7 +53,7 @@ const useStyles = makeStyles((theme) => ({
     contactDetail: {
       backgroundColor: '#fff',
       '& li': {
-        color: '#a58c8c',
+        color: '#666',
         padding: theme.spacing(1, 0)
       },
     },
@@ -75,7 +73,6 @@ const useStyles = makeStyles((theme) => ({
         height: theme.spacing(12),
     },
   }));
-
 function ContactCard() {
     const classes = useStyles();
     
@@ -94,13 +91,13 @@ function ContactCard() {
                                 component="img"
                                 alt="placeholder"
                                 height="140"
-                                image="zee.jpeg"
+                                image="banner.png"
                                 title="Terri Wilson"
                                 />
                                 <CardHeader
                                     className={classes.cardHeader}
                                     avatar={
-                                    <Avatar aria-label="recipe" src="3.jpg" className={classes.avatarLarge} />
+                                    <Avatar aria-label="recipe" src="avatar.png" className={classes.avatarLarge} />
                                     }
                                     action={
                                     <IconButton aria-label="settings">
@@ -140,47 +137,47 @@ function ContactCard() {
                         <List  className={classes.contactDetail} aria-label="contacts">
                             <ListItem>
                                 <ListItemIcon>
-                                    <ContactsIcon />
+                                   <ProfileIconSvg />
                                 </ListItemIcon>
                                 <ListItemText primary="Terri Wilson" />
                             </ListItem>
                             <Divider />
                             <ListItem>
                                 <ListItemIcon>
-                                    <CardTravelIcon />
+                                    <BagIconSvg />
                                 </ListItemIcon>
                                 <ListItemText primary="Engineer" />
                             </ListItem>
                             <Divider />
                             <ListItem>
                                 <ListItemIcon>
-                                    <CallIcon />
+                                    <CallIconSvg />
                                 </ListItemIcon>
                                 <ListItemText primary="214.620-1317" />
                                 <Chip
-                                    icon={<CallIcon />}
+                                    icon={<CallIconSvg />}
                                     label="Click To Call" 
                                 />
                             </ListItem>
                             <Divider />
                             <ListItem>
                                 <ListItemIcon>
-                                    <CallIcon />
+                                    <CallIconSvg />
                                 </ListItemIcon>
                                 <ListItemText primary="972-475-9582" />
                                 <Chip
-                                    icon={<CallIcon />}
+                                    icon={<CallIconSvg />}
                                     label="Click To Call" 
                                 />
                             </ListItem>
                             <Divider />
                             <ListItem>
                                 <ListItemIcon>
-                                    <MailIcon />
+                                    <MailIconSvg />
                                 </ListItemIcon>
                                 <ListItemText primary="tWilson@juice4u.com" />
                                 <Chip
-                                    icon={<MailIcon />}
+                                    icon={<MailIconSvg />}
                                     label="Click To Email" 
                                 />
                             </ListItem>

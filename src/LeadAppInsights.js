@@ -8,15 +8,12 @@ import Card from '@material-ui/core/Card';
 import CardHeader from '@material-ui/core/CardHeader';
 import CardContent from '@material-ui/core/CardContent';
   
-
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText'; 
 
-import SettingsIcon from '@material-ui/icons/Settings';
-import ThreeDRotationIcon from '@material-ui/icons/ThreeDRotation';
-import FolderSharedIcon from '@material-ui/icons/FolderShared';
+import { GearIconSvg, RocketIconSvg, IncomeIconSvg, TransactionIconSvg } from './LeadAppIcons'
 
 const useStyles = makeStyles((theme) => ({
 
@@ -36,11 +33,13 @@ const useStyles = makeStyles((theme) => ({
     },
     iconLarge: {
         background: '#fff',
-        width: theme.spacing(6),
+        minWidth: theme.spacing(6),
         height: theme.spacing(6),
-        padding: theme.spacing(1),
         margin: theme.spacing(0, 2, 0, 0),
         borderRadius: '4px',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
     },
   }));
 
@@ -72,7 +71,7 @@ function Insights() {
                                     <List  className={classes.companyInsights} aria-label="contacts">
                                         <ListItem>
                                             <ListItemIcon className={classes.iconLarge}>
-                                                <SettingsIcon fontSize="large" />
+                                                <GearIconSvg />
                                             </ListItemIcon>                                            
                                             <ListItemText
                                                 primary="Primary Products"
@@ -81,7 +80,7 @@ function Insights() {
                                         </ListItem>
                                         <ListItem>
                                             <ListItemIcon className={classes.iconLarge}>
-                                                <FolderSharedIcon fontSize="large"  />
+                                                <RocketIconSvg  />
                                             </ListItemIcon>
                                             <ListItemText 
                                                 primary="New Opportunities"
@@ -90,7 +89,7 @@ function Insights() {
                                         </ListItem>
                                         <ListItem>
                                             <ListItemIcon className={classes.iconLarge}>
-                                                <FolderSharedIcon fontSize="large"  />
+                                                <IncomeIconSvg />
                                             </ListItemIcon>
                                             <ListItemText 
                                                 primary="Cross Cell Oppertinities"
@@ -99,7 +98,7 @@ function Insights() {
                                         </ListItem>
                                         <ListItem>
                                             <ListItemIcon className={classes.iconLarge}>
-                                                <ThreeDRotationIcon fontSize="large"  />
+                                                <TransactionIconSvg  />
                                             </ListItemIcon>
                                             <ListItemText 
                                                 primary="Last Purchase"
