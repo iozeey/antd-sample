@@ -32,7 +32,7 @@ const useStyles = makeStyles((theme) => ({
       backgroundColor: '#F7F7F7',
     },
     vSpacing: {
-      margin: theme.spacing(4, 0),
+      margin: theme.spacing(2, 0),
     }, 
     applicationArea: {
       backgroundColor: '#f1f1f1',

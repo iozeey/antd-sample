@@ -11,29 +11,10 @@ import { ThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    // display: 'flex',
     padding: theme.spacing(4),
     backgroundColor: '#eee',
 
-  },
-  heading: {
-    fontSize: theme.typography.pxToRem(15),
-    flexBasis: '33.33%',
-    flexShrink: 0,
-  },
-  secondaryHeading: {
-    fontSize: theme.typography.pxToRem(15),
-    color: theme.palette.text.secondary,
-  },
-  nested: {
-    paddingLeft: theme.spacing(4),
-  },
-  vendorsList: {
-    backgroundColor: '#F7F7F7',
-  },
-  applicationArea: {
-    backgroundColor: '#f1f1f1',
-  },
+  }, 
 }));
  
 const theme = createMuiTheme({
@@ -52,10 +33,29 @@ const theme = createMuiTheme({
   overrides: {
     MuiTabs: {
       indicator: {
-        backgroundColor: '#20B0A7'
+        backgroundColor: '#CBCED2',
+        // '&::after':{
+        //   content: '" "',
+        //   position: 'absolute',
+        //   bottom: '-15px',
+        //   left: '45px',
+        //   borderWidth: '15px 15px 0',
+        //   borderStyle: 'solid',
+        //   borderColor: '#CBCED2 transparent',
+        //   display: 'block',
+        //   width: 0,
+
+        // }
       }
     },
     MuiTab: {
+      wrapper: {
+        flexDirection:'row',
+        '& > svg': {
+          marginBottom: '0 !important',
+          marginRight: '8px !important',
+        },
+      },
       root: {
         "&:hover": {
           backgroundColor: '#0054A1',
@@ -67,7 +67,7 @@ const theme = createMuiTheme({
         backgroundColor: '#0054A1',
         color: '#ffffff',
         "&:hover": {
-          backgroundColor: '#20B0A7',
+          backgroundColor: '#0054A1',
           color: '#ffffff'
         }
       }
@@ -80,10 +80,10 @@ function LeadApp() {
    
   return ( 
     <ThemeProvider theme={theme}>
-    <Container maxWidth="xl" className={classes.root}>
+    <Container maxWidth={false} className={classes.root}>
       <CssBaseline />
-        <Grid container direction="row" justify="flex-start" alignItems="flex-start" spacing={0}>
-          <Grid xs={12}>
+        <Grid container direction="row" justify="center" alignItems="flex-start" spacing={0}>
+          <Grid xs={24}>
             <Typography component='h5' variant='h5'>Lead Desktop view</Typography>
               <LeadAppDesktop />         
           </Grid>

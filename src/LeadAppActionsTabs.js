@@ -56,16 +56,22 @@ const useStyles = makeStyles((theme) => ({
         // backgroundColor: '#e6eef5',
 
         '& > header': {
+          backgroundColor: '#EAEDF4',
         },
         '& > header button': {
             // backgroundColor: '#016ac4',
             // color: '#fff',
             minWidth: '16.666667%',
+            minHeight: '40px',
+            margin: theme.spacing(2, 0, 2, 2) ,
+            padding: theme.spacing(0) ,    
+            borderRadius: '3px',  
         },
         
     }, 
     leadActionPanel: {
         backgroundColor: '#CBCED2',
+        position: 'relative',
         margin: theme.spacing(2, 0) ,
         '& > div': {
             padding: theme.spacing(2) ,      
@@ -75,7 +81,18 @@ const useStyles = makeStyles((theme) => ({
           justifyContent: 'start',
           padding: theme.spacing(1, 2) , 
         },
-      
+        '&::after':{
+          content: '" "',
+          position: 'absolute',
+          top: '-8px',
+          left: '45px',
+          borderWidth: '0 15px 15px ',
+          borderStyle: 'solid',
+          borderColor: '#CBCED2 transparent',
+          display: 'block',
+          width: 0,
+
+        }
     },
   }));
  
@@ -94,16 +111,16 @@ function ActionsTabs() {
                 <Tabs
                 value={value}
                 onChange={handleChangeTabs}
-                variant="scrollable"
-                scrollButtons="off"
+                variant="fullWidth"
+                scrollButtons="auto"
                 aria-label="scrollable prevent tabs example"
                 >
-                <Tab icon={<ForwardIconSvg />} label="Forward" aria-label="phone" {...a11yProps(0)} />
-                <Tab icon={<NotificationsActiveIconSvg />} label="Open" aria-label="favorite" {...a11yProps(1)} />
-                <Tab icon={<AutorenewIconSvg />} label="Close" aria-label="person" {...a11yProps(2)} />
-                <Tab icon={<WarningIconSvg />} label="Not My Lead" aria-label="help" {...a11yProps(3)} />
-                <Tab icon={<ChatBubbleIconSvg />} label="Chat" aria-label="shopping" {...a11yProps(4)} />
-                <Tab icon={<HeadsetMicIconSvg />} label="Support" aria-label="up" {...a11yProps(5)} />
+                <Tab icon={<ForwardIconSvg />} label="Forward" aria-label="forward" {...a11yProps(0)} />
+                <Tab icon={<NotificationsActiveIconSvg />} label="Open" aria-label="open" {...a11yProps(1)} />
+                <Tab icon={<AutorenewIconSvg />} label="Close" aria-label="close" {...a11yProps(2)} />
+                <Tab icon={<WarningIconSvg />} label="Not My Lead" aria-label="not my lead" {...a11yProps(3)} />
+                <Tab icon={<ChatBubbleIconSvg />} label="Chat" aria-label="chat" {...a11yProps(4)} />
+                <Tab icon={<HeadsetMicIconSvg />} label="Support" aria-label="support" {...a11yProps(5)} />
                 </Tabs>
             </AppBar>
             <TabPanel className={classes.leadActionPanel} value={value} index={0}>
@@ -122,7 +139,7 @@ function ActionsTabs() {
                     </Grid>
                 </Grid >
             </TabPanel>
-            <TabPanel className={classes.leadActionPanel} value={value} index={1}>
+            <TabPanel className={classes.leadActionPanel} value={value} index={1} arrow>
                 Item Two 
             </TabPanel>
             <TabPanel className={classes.leadActionPanel} value={value} index={2}>

@@ -10,7 +10,7 @@ import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import MinimizeIcon from '@material-ui/icons/Minimize';
-import {FireIconSvg} from './LeadAppIcons';
+import {FireIconSvg, StarIconSvg} from './LeadAppIcons';
 const useStyles = makeStyles((theme) => ({
     
     ActionCardHeader: {
@@ -55,7 +55,7 @@ function Statistics() {
             {rows.map((row) => (
               <TableRow key={row.name}>
                 <TableCell><MinimizeIcon /> {row.leadDate}</TableCell>
-                <TableCell><FireIconSvg /> {row.leadScore}</TableCell>
+                <TableCell><StarIconSvg /> <StarIconSvg /> <StarIconSvg /> <FireIconSvg /> {row.leadScore}</TableCell>
                 <TableCell>{row.companyName}</TableCell>
                 <TableCell>{row.cityState}</TableCell>
                 <TableCell>{row.country}</TableCell>

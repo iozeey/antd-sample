@@ -60,11 +60,11 @@ function Insights() {
                                     <Typography variant="h6" gutterBottom>
                                         Company Introduction
                                     </Typography>
-                                    <Typography variant="body1" color="textSecondary" gutterBottom>
+                                    <Typography variant="body1" gutterBottom>
                                         Company Pure Food is an American manufacturer of single-serve, aseptic, frozen and chilled fruit drinks,
                                         juices and concentrates for retail foods purveyous and food service operators.
                                     </Typography>
-                                    <Typography variant="body1" color="textSecondary" gutterBottom>
+                                    <Typography variant="body1" gutterBottom>
                                         It alsoprovides food manufacturer with fruit ingrediants.
                                     </Typography>
                                     <Divider />

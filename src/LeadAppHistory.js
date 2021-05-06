@@ -23,7 +23,7 @@ const useStyles = makeStyles((theme) => ({
     contactDetail: {
       backgroundColor: '#fff',
       '& li': {
-        color: '#a58c8c',
+        color: '#666666',
         padding: theme.spacing(1, 0)
       },
       '& li:nth-child(2) > div.green': {

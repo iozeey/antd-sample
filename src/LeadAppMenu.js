@@ -28,6 +28,7 @@ const useStyles = makeStyles((theme) => ({
   sectionDesktop: {
     '& > a': {
         margin: theme.spacing(0, 1),
+        borderRadius: 0,
     },
     '& > a.active':{
         backgroundColor: '#C7E5F5',

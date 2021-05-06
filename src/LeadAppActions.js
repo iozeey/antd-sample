@@ -23,7 +23,7 @@ const useStyles = makeStyles((theme) => ({
           },
       },
     vSpacing: {
-        margin: theme.spacing(4, 0),
+        margin: theme.spacing(2, 0),
     },
   }));
  
