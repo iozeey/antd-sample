@@ -139,9 +139,10 @@ const columns = [
 function Vendor() {
    
     return (  
-        <Col span={12}>
-        <Card hoverable bordered={false} title={<div className="cardTitle"><AppleFilled /> Apple Store | <Text type="secondary"> &nbsp; 4 Apps (Inactive)</Text> </div>} bodyStyle={{padding: "0"}} >
-        <Tabs defaultActiveKey="1" centered onChange={callback}>
+        <Col span={24}>
+        <Card hoverable bordered={false} title={<div className="cardTitle"><AppleFilled /> Apple Store | 
+        <Text type="secondary"> &nbsp; 4 Apps (Inactive)</Text> </div>} bodyStyle={{padding: "0"}} >
+          <Tabs defaultActiveKey="1" centered onChange={callback}>
             <TabPane tab="Vendor Information" key="1">
                 <Card title="" bordered={true}>
                     <Meta title="Mr. Vladimir Preobrazhensky" description="July 10, 2008" />
@@ -175,7 +176,7 @@ function Vendor() {
                     <Table bordered columns={columns} dataSource={data} onChange={onChange} pagination={{ pageSize: 6 }} scroll={{ y: 200 }} />
                 </Card>                    
             </TabPane> 
-        </Tabs>
+          </Tabs>
         </Card>
       </Col>
     )

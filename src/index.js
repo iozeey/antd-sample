@@ -1,12 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import LeadApp from './LeadApp';
+import Antd from './Antd';
+// import LeadApp from './LeadApp';
 import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
   <React.StrictMode>
-    <LeadApp />
+    <Antd />
   </React.StrictMode>,
   document.getElementById('root')
 );

@@ -3,7 +3,7 @@ import 'antd/dist/antd.css';
 import './App.css';
 
 import { Layout, Row } from 'antd';
-import Vendor from './VendorAntd';
+import VendorAntdTableLayout from './VendorAntdTableLayout';
 
 const { Content } = Layout; 
 
@@ -13,7 +13,7 @@ function Antd() {
     <Layout>
       <Content style={style}>
         <Row justify="center" gutter={32}>
-            <Vendor />
+            <VendorAntdTableLayout />            
         </Row>
       </Content>
     </Layout>
