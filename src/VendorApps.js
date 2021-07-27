@@ -1,12 +1,20 @@
-import React, { useState } from 'react';
-import { Table, Input, InputNumber, Popconfirm, Form, Typography, Button } from 'antd';
+import React, { useState } from "react";
+import {
+  Table,
+  Input,
+  InputNumber,
+  Popconfirm,
+  Form,
+  Typography,
+  Button,
+} from "antd";
 const originData = [];
 
 for (let i = 0; i < 10; i++) {
   originData.push({
     key: i.toString(),
     name: `Application ${i}`,
-    cat:  `Category ${i}`,
+    cat: `Category ${i}`,
     licenses: `${5 + i}`,
     apps: `${1 + i}`,
   });
@@ -22,7 +30,7 @@ const EditableCell = ({
   children,
   ...restProps
 }) => {
-  const inputNode = inputType === 'number' ? <InputNumber /> : <Input />;
+  // const inputNode = inputType === "number" ? <InputNumber /> : <Input />;
   return (
     <td {...restProps}>
       {editing ? (
@@ -38,7 +46,7 @@ const EditableCell = ({
             },
           ]}
         >
-          {inputNode}
+          <Input />
         </Form.Item>
       ) : (
         children
@@ -50,23 +58,26 @@ const EditableCell = ({
 const EditableTable = () => {
   const [form] = Form.useForm();
   const [data, setData] = useState(originData);
-  const [editingKey, setEditingKey] = useState('');
+  const [editingKey, setEditingKey] = useState("");
 
   const isEditing = (record) => record.key === editingKey;
 
   const edit = (record) => {
     form.setFieldsValue({
-      name: '',
-      cat: '',
-      licenses: '',
-      apps: '',
+      name: "",
+      cat: "",
+      licenses: "",
+      apps: "",
       ...record,
     });
+    
+    console.log(record);
+
     setEditingKey(record.key);
   };
 
   const cancel = () => {
-    setEditingKey('');
+    setEditingKey("");
   };
 
   const save = async (key) => {
@@ -79,51 +90,52 @@ const EditableTable = () => {
         const item = newData[index];
         newData.splice(index, 1, { ...item, ...row });
         setData(newData);
-        setEditingKey('');
+        setEditingKey("");
       } else {
         newData.push(row);
         setData(newData);
-        setEditingKey('');
+        setEditingKey("");
       }
     } catch (errInfo) {
-      console.log('Validate Failed:', errInfo);
+      console.log("Validate Failed:", errInfo);
     }
   };
 
   const columns = [
     {
-      title: 'Application Name',
-      dataIndex: 'name',
+      title: "Application Name",
+      dataIndex: "name",
       editable: true,
-      width: '20%',
+      width: "20%",
     },
     {
-      title: 'Category',
-      dataIndex: 'cat',
+      title: "Category",
+      dataIndex: "cat",
       editable: true,
-      width: '20%',
+      width: "20%",
     },
     {
-      title: 'Licenses Bought',
-      dataIndex: 'licenses',
+      title: "Licenses Bought",
+      dataIndex: "licenses",
       editable: true,
-      width: '20%',
+      width: "20%",
     },
     {
-      title: 'App Covered in Contract',
-      dataIndex: 'apps',
+      title: "App Covered in Contract",
+      dataIndex: "apps",
       editable: true,
-      width: '20%',
+      width: "20%",
     },
     {
-      title: 'operation',
-      dataIndex: 'operation',
-      width: '20%',
+      title: "operation",
+      dataIndex: "operation",
+      width: "20%",
       render: (_, record) => {
         const editable = isEditing(record);
         return editable ? (
           <span>
-            <Button type="link"
+            <Button
+              type="link"
               onClick={() => save(record.key)}
               style={{
                 marginRight: 8,
@@ -136,7 +148,10 @@ const EditableTable = () => {
             </Popconfirm>
           </span>
         ) : (
-          <Typography.Link disabled={editingKey !== ''} onClick={() => edit(record)}>
+          <Typography.Link
+            disabled={editingKey !== ""}
+            onClick={() => edit(record)}
+          >
             Edit
           </Typography.Link>
         );
@@ -150,17 +165,39 @@ const EditableTable = () => {
 
     return {
       ...col,
+      sorter: (a, b) => a.licenses > b.licenses,
+      sortDirections: ["descend"],
       onCell: (record) => ({
         record,
-        inputType: col.dataIndex === 'cat' ? 'number' : 'text',
+        inputType: col.dataIndex === "cat" ? "number" : "text",
         dataIndex: col.dataIndex,
         title: col.title,
         editing: isEditing(record),
       }),
     };
   });
+
+  const handleAdd = () => {
+    const totalApp = data.length;
+    const rowKey = `${totalApp+1}`
+    const newRow = {
+      key: rowKey,
+      name: "",
+      cat: "",
+      licenses: "",
+      apps: "",
+    };
+
+    setData([newRow, ...data]);
+    edit(newRow);
+  };
+
   return (
     <Form form={form} component={false}>
+      <Button onClick={handleAdd} type="primary" style={{ marginBottom: 16 }}>
+        Add a row
+      </Button>
+
       <Table
         components={{
           body: {
@@ -173,17 +210,15 @@ const EditableTable = () => {
         rowClassName="editable-row"
         pagination={false}
         scroll={{ x: 500, y: 160 }}
-        
       />
     </Form>
   );
 };
 function VendorApps() {
-   
-    return (  
-        <>
-             <EditableTable />
-        </>
-    )
+  return (
+    <>
+      <EditableTable />
+    </>
+  );
 }
 export default VendorApps;
